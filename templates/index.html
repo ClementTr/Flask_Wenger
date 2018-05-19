@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tous les chemins mènent à la philosophie</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Clément Tailleur">
+
+    <!-- Favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="static/img/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css"  href="static/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="static/fonts/font-awesome/css/font-awesome.css">
+
+    <!-- Slider
+    ================================================== -->
+    <link href="static/css/owl.carousel.css" rel="stylesheet" media="screen">
+    <link href="static/css/owl.theme.css" rel="stylesheet" media="screen">
+
+    <!-- Stylesheet
+    ================================================== -->
+    <link rel="stylesheet" type="text/css"  href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/responsive.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400' rel='stylesheet' type='text/css'>
+    <style>
+
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .bg {
+            /* The image used */
+            {% if success == 0 %}
+                background: url(static/img/main/01.gif);
+            {% elif success == 1 %}
+                background: url(static/img/main/02.jpg_large);
+            {% else %}
+                background: url(static/img/main/03.jpg);
+            {% endif %}
+
+            /* Full height */
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+
+          audio {
+            display:none;
+          }
+
+    </style>
+
+
+    <script type="text/javascript" src="static/js/modernizr.custom.js"></script>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+
+  </head>
+  <body>
+
+    <!-- Home Page
+    ==========================================-->
+    {% block body %}
+
+
+    <div class="bg">
+      <div class="overlay">
+          <div class="content">
+              {% if success == 0 %}
+
+              <audio controls autoplay>
+                <source src="static/img/main/wenger_speech.mp3" type="audio/mpeg">
+              </audio>
+
+              <p class="lead" id="citation">
+                <i>
+                  "Don’t be scared to be ambitious. It’s not a humiliation to have a high target and to fail.<br>
+                  For me, the real humiliation is to have a target and not to give everything to reach it."
+                </i>
+                <h1 class="center">
+                    Arsène Wenger
+                    <strong>
+                      <span class="color">
+                        The true philosopher
+                      </span>
+                    </strong>
+                </h1>
+              </p>
+              {% elif success == 1  %}
+
+                <audio controls autoplay>
+                  <source src="static/img/main/applause.mp3" type="audio/mpeg">
+                </audio>
+
+                <h1 class="center" id="success">
+                    <b>What an Achievement</b>
+                </h1>
+                <h3 class="game_title" id="score">
+                  <center>
+                  Your score is {{ session.score }}
+                  </center>
+                </h3>
+              {% else  %}
+                <audio controls autoplay>
+                  <source src="static/img/main/boo.mp3" type="audio/mpeg">
+                </audio>
+
+                <p class="lead" id="defeat">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </p>
+                <h1 class="center" id="defeat">
+                    That's too
+                    <strong>
+                          <span class="color">
+                            bad !
+                          </span>
+                    </strong>
+                </h1>
+              {% endif %}
+
+              <br>
+
+
+              <form action="/new_game" method="POST">
+                <center>
+                  <input class="input_text" type="text" name="start" placeholder="Arsène Wenger">
+                  <br>
+                  <input class="btn_resume" type="submit">
+                </center>
+              </form>
+
+
+              </p>
+          </div>
+      </div>
+    </div>
+
+
+
+    {% endblock %}
+    </body>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="static/js/jquery.1.11.1.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="static/js/bootstrap.js"></script>
+    <script type="text/javascript" src="static/js/SmoothScroll.js"></script>
+    <script type="text/javascript" src="static/js/jquery.isotope.js"></script>
+
+    <script src="static/js/owl.carousel.js"></script>
+
+    <!-- Javascripts
+    ================================================== -->
+    <script src='https://cdn.jsdelivr.net/scrollreveal.js/3.3.1/scrollreveal.min.js'></script>
+    <script type="text/javascript" src="static/js/main.js"></script>
+
+</html>

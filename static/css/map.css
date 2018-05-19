@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+}
+
+html, body, #leaflet {
+  height: 100%;
+}
+
+
+.rotate90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.my_location_font {
+  font-family: 'Lato', sans-serif;
+}
+
+.img_border {
+  border: 20px solid transparent;
+  border-image: url(../img/map/border.jpg) 40% round;
+}
+
+.year_border {
+  font-family: 'Lato', sans-serif;
+  background-color: red;
+}
