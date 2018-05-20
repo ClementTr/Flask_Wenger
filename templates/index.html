@@ -111,14 +111,17 @@
                   <source src="static/img/main/applause.mp3" type="audio/mpeg">
                 </audio>
 
-                <h1 class="center" id="success">
-                    <b>What an Achievement</b>
-                </h1>
-                <h3 class="game_title" id="score">
-                  <center>
-                  Your score is {{ session.score }}
-                  </center>
-                </h3>
+                <div class="blur">
+                  <h1 class="center" id="success">
+                      <b>What an Achievement</b>
+                  </h1>
+                    <center>
+                      <h3 class="game_title" id="score">
+                        Beginning with {{session.first_word}} your score is {{ session.score }}
+                      </h3>
+                    </center>
+                </div>
+
               {% else  %}
                 <audio controls autoplay>
                   <source src="static/img/main/boo.mp3" type="audio/mpeg">

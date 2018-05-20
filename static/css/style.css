@@ -22,7 +22,7 @@ h1.center{
 }
 
 h1#success{
-	color:#00ff23;
+	color:#ffffff;
 }
 
 h1#defeat{
@@ -114,8 +114,6 @@ a.fa.fa-angle-down:hover{
 	color: red;
 }
 
-
-
 ul {
     list-style: none;
 }
@@ -136,4 +134,8 @@ label:hover {
 }
 input:checked + label {
     background: #228F0D;
+}
+
+.blur{
+	background-color: #223e2552;
 }

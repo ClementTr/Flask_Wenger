@@ -6,6 +6,7 @@ from flask import Flask, render_template, session, request, redirect, flash
 from getpage import getPage
 import itertools
 import setpath
+from test import test_success, check_cheater
 
 app = Flask(__name__)
 
@@ -16,6 +17,7 @@ success = 0
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    assert(test_success(success) == True)
     return render_template('index.html', success=success)
 
 @app.route('/new_game', methods=['GET', 'POST'])
@@ -38,6 +40,8 @@ def new_game():
         session['score'] = 0
         flash("No you cannot do that, it's too easy !")
         return redirect("/")
+    else:
+        session['first_word'] = title
     return redirect("/game")
 
 
@@ -47,6 +51,8 @@ def game():
 
     session['cheater'] += 1
     cheater = 0
+    assert(check_cheater(session['cheater']) == True)
+
     if session['cheater'] >= 2:
         cheater = 1
 
@@ -76,6 +82,7 @@ def game():
 @app.route('/move', methods=['GET', 'POST'])
 def move():
     global success
+    global list_links
     if request.form['destination'] not in list_links:
         print(request.form['destination'])
         success = -1
